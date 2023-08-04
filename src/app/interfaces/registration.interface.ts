@@ -13,4 +13,5 @@ export interface IRegistrationData {
     accountOwner: string;
     IBAN: number;
   };
+  paymentIdInfo?: string
 }

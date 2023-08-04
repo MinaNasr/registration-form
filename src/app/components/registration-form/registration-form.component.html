@@ -1,7 +1,7 @@
 <div class="container">
-  <mat-stepper orientation="vertical" [linear]="isLinear" #stepper>
+  <mat-stepper [selectedIndex]="selectedIndex" orientation="vertical" linear #stepper>
     <form [formGroup]="registrationForm">
-      <mat-step>
+      <mat-step [completed]="personalInfoForm.valid">
         <div class="form-group" formGroupName="personalInfo">
           <ng-template matStepLabel
             >Fill out your personal Information</ng-template
@@ -12,7 +12,6 @@
               matInput
               placeholder="First name"
               formControlName="firstName"
-              required
             />
           </mat-form-field>
           <mat-form-field>
@@ -21,7 +20,6 @@
               matInput
               placeholder="Last name"
               formControlName="lastName"
-              required
             />
           </mat-form-field>
           <div>
@@ -31,7 +29,7 @@
           </div>
         </div>
       </mat-step>
-      <mat-step>
+      <mat-step [completed]="addressInfoForm.valid">
         <div formGroupName="addressInfo">
           <ng-template matStepLabel
             >Fill out your address information</ng-template
@@ -42,7 +40,6 @@
               matInput
               formControlName="street"
               placeholder="Ex. 1 Main St."
-              required
             />
           </mat-form-field>
           <mat-form-field>
@@ -52,7 +49,6 @@
               type="number"
               formControlName="houseNumber"
               placeholder="Ex. 1"
-              required
             />
           </mat-form-field>
           <mat-form-field>
@@ -62,7 +58,6 @@
               type="number"
               formControlName="zipCode"
               placeholder="Ex. 134234"
-              required
             />
           </mat-form-field>
           <mat-form-field>
@@ -71,18 +66,19 @@
               matInput
               formControlName="city"
               placeholder="Ex. Hamburg"
-              required
             />
           </mat-form-field>
           <div>
-            <button class="back-btn" mat-raised-button matStepperPrevious>Back</button>
+            <button class="back-btn" mat-raised-button matStepperPrevious>
+              Back
+            </button>
             <button mat-raised-button color="primary" matStepperNext>
               Next
             </button>
           </div>
         </div>
       </mat-step>
-      <mat-step>
+      <mat-step [completed]="paymentInfoForm.valid">
         <div formGroupName="paymentInfo">
           <ng-template matStepLabel
             >Fill out your address information</ng-template
@@ -93,7 +89,6 @@
               matInput
               formControlName="accountOwner"
               placeholder="Ex. Bill Morgan"
-              required
             />
           </mat-form-field>
           <mat-form-field>
@@ -103,18 +98,19 @@
               type="number"
               formControlName="IBAN"
               placeholder="Ex. 13243423434"
-              required
             />
           </mat-form-field>
           <div>
-            <button class="back-btn" mat-raised-button matStepperPrevious>Back</button>
+            <button class="back-btn" mat-raised-button matStepperPrevious>
+              Back
+            </button>
             <button
               (click)="onSubmit()"
               mat-raised-button
-              color="primary"
+              color="accent"
               matStepperNext
             >
-              Next
+              Submit
             </button>
           </div>
         </div>
@@ -122,12 +118,6 @@
     </form>
   </mat-stepper>
   <ng-template #successMessage>
-    <h2 matDialogTitle>Success!</h2>
-    <p matDialogContent>
-      <em>Customer with Id : 50 is regostered successfully</em>
-    </p>
-    <mat-dialog-actions align="end">
-      <button mat-button matDialogClose>Done</button>
-    </mat-dialog-actions>
+    <app-success-message [paymentInfoId]="paymentInfoId"></app-success-message>
   </ng-template>
 </div>

@@ -11,8 +11,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material/dialog';
+import { SuccessMessageComponent } from './components/success-message/success-message.component';
 @NgModule({
-  declarations: [AppComponent, RegistrationFormComponent],
+  declarations: [AppComponent, RegistrationFormComponent, SuccessMessageComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

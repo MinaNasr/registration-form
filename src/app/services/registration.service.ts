@@ -15,7 +15,7 @@ export class RegistrationService {
       customerId: Date.now().toString(),
     };
 
-    return this.http.post(
+    return this.http.post<{paymentDataId: string}>(
       '/default/wunderfleet-recruiting-backend-dev-save-payment-data',
       paymentData
     );
