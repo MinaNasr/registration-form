@@ -79,7 +79,8 @@
               "browserTarget": "registration-form:build:production"
             },
             "development": {
-              "browserTarget": "registration-form:build:development"
+              "browserTarget": "registration-form:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

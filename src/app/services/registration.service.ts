@@ -10,12 +10,13 @@ export class RegistrationService {
 
   postRegistationData(registrationData: IRegistrationData) {
     const paymentData = {
-      ...registrationData.paymentInfo,
+      iban : registrationData.paymentInfo.IBAN,
+      owner: registrationData.paymentInfo.accountOwner,
       customerId: Date.now().toString(),
     };
 
     return this.http.post(
-      'https://37f32cl571.execute-api.eu-central-1.amazonaws.com/default/wunderfleet-recruiting-backend-dev-save-payment-data',
+      '/default/wunderfleet-recruiting-backend-dev-save-payment-data',
       paymentData
     );
   }

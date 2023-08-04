@@ -42,19 +42,23 @@ export class RegistrationFormComponent {
     });
   }
 
-  onSubmit() {
-    const registrationData: IRegistrationData = this.registrationForm.value;
-    // this.registrationService
-    //   .postRegistationData(registrationData)
-    //   .subscribe((data) => {
-    //     console.log('returnedData: ', data);
-    //     this.formSubmitSucceeded = true;
-    //   });
-    this.dialog.open(this.successMessage);
+  private saveDateToLocalStorage(data: IRegistrationData){
     let savedCustomers = JSON.parse(localStorage.getItem('customers') || '[]');
     console.log(savedCustomers);
-    savedCustomers.push(registrationData);
+    savedCustomers.push(data);
     localStorage.setItem('customers', JSON.stringify(savedCustomers));
+  }
+
+  onSubmit() {
+    const registrationData: IRegistrationData = this.registrationForm.value;
+    this.registrationService
+      .postRegistationData(registrationData)
+      .subscribe((data) => {
+        console.log('returnedData: ', data);
+      });
+    this.dialog.open(this.successMessage);
+    this.saveDateToLocalStorage(registrationData);
     this.registrationForm.reset();
   }
+
 }

@@ -8,7 +8,11 @@
     margin: 30px auto;
 }
 
-.form-group{
+.container .form-group{
     display: flex;
     flex-direction: column;
+}
+
+.container .back-btn{
+    margin-right: 1rem;
 }
