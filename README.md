@@ -30,7 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 #### 1 - Describe possible optimizations for your code:
 
-we could have used state management system libraries like ngrx for managing the state of the app and saving the current step that we are in along with dispatching the submit action
+- we could have used state management system libraries like ngrx for managing the state of the app and saving the current step that we are in along with dispatching the submit action
 
 #### 2 - Things that could be done better:
 
