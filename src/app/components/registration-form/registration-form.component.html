@@ -23,7 +23,7 @@
             />
           </mat-form-field>
           <div>
-            <button mat-raised-button color="primary" matStepperNext>
+            <button (click)="savePersonalInfo()" mat-raised-button color="primary" matStepperNext>
               Next
             </button>
           </div>
@@ -72,7 +72,7 @@
             <button class="back-btn" mat-raised-button matStepperPrevious>
               Back
             </button>
-            <button mat-raised-button color="primary" matStepperNext>
+            <button (click)="saveAddressInfo()" mat-raised-button color="primary" matStepperNext>
               Next
             </button>
           </div>
